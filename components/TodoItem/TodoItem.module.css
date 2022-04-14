@@ -1,0 +1,25 @@
+.container {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text {
+  /* background-color: aliceblue; */
+}
+
+.btnContainer {
+    margin-left: 6px;
+    display: flex;
+}
+
+.crossed {
+  text-decoration: line-through;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  height: 32px;
+}

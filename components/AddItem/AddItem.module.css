@@ -1,0 +1,21 @@
+.container {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.label {
+  margin-right: 6px;
+}
+
+.input {
+  height: 32px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  height: 32px;
+}
