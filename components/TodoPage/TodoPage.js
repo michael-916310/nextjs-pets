@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 import AddItem from '../AddItem/AddItem';
 import List from  './../TodoList/TodoList';
@@ -7,10 +7,21 @@ import List from  './../TodoList/TodoList';
 import styles from './TodoPage.module.css';
 
 export default function TodoList() {
-    const [items, setItems] = useState([
-        { id: 0, name: 'item 1', isCompleted: false },
-        { id: 1, name: 'item 2', isCompleted: true },
-    ]);
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        const loadList = async () => {
+            const result = await fetch('/data/initialToDoList.json');
+            const json = await result.json();
+            setItems(json);
+        };
+
+        try {
+            loadList();
+        } catch (e) {
+
+        }
+    }, []);
 
     const addItem = (item) => {
         setItems([
