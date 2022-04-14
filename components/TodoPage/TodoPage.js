@@ -49,6 +49,15 @@ export default function TodoList() {
         }))
     }
 
+    const handleTextChange = (id, newText) => {
+        setItems(items.map((el) => {
+            if (el.id === id) {
+                return {...el, name: newText}
+            }
+            return el;
+        }));
+    }
+
     return (
         <article className={styles.container}>
             <AddItem addItem={addItem}/>
@@ -56,6 +65,7 @@ export default function TodoList() {
                 items = {items} 
                 handleDelete = {handleDelete} 
                 handleSwitch = {handleSwitch}
+                handleTextChange = {handleTextChange}
             />
          </article>
     )

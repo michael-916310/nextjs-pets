@@ -1,9 +1,13 @@
 import TodoItem from './../TodoItem/TodoItem';
 import styles from './TodoList.module.css';
 
-export default function TodoList({items, handleDelete, handleSwitch}) {
+export default function TodoList({
+  items, 
+  handleDelete, 
+  handleSwitch, 
+  handleTextChange
+}) {
   
-
   return (
       <section className={styles.container}>
         {
@@ -13,7 +17,9 @@ export default function TodoList({items, handleDelete, handleSwitch}) {
                     key={el.id}
                     item={el}
                     onDelete={handleDelete}
-                    onSwitch={handleSwitch}/>
+                    onSwitch={handleSwitch}
+                    onTextChanged={handleTextChange}
+                    />
             )}) 
         }
       </section>
