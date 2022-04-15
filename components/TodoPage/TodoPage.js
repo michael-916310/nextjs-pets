@@ -6,22 +6,8 @@ import List from  './../TodoList/TodoList';
 
 import styles from './TodoPage.module.css';
 
-export default function TodoList() {
-    const [items, setItems] = useState([]);
-
-    useEffect(() => {
-        const loadList = async () => {
-            const result = await fetch('/data/initialToDoList.json');
-            const json = await result.json();
-            setItems(json);
-        };
-
-        try {
-            loadList();
-        } catch (e) {
-
-        }
-    }, []);
+export default function TodoList(props) {
+    const [items, setItems] = useState(props.items);
 
     const addItem = (item) => {
         setItems([
