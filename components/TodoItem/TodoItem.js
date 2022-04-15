@@ -1,6 +1,7 @@
 import {useState, useRef} from "react";
 import cn from 'classnames'
 import Image from 'next/image';
+
 import ReactTooltip from 'react-tooltip';
 
 import styles from './TodoItem.module.css';
@@ -8,6 +9,11 @@ import styles from './TodoItem.module.css';
 export default function TodoItem({item, onSwitch, onDelete, onTextChanged}) {
   const [isEdit, setIsEdit] = useState(false);
   const ref = useRef();
+
+  const handleDelete = () =>{
+    onDelete(item.id)
+  }
+
   return (
     <section className={styles.container}>
 
@@ -58,7 +64,7 @@ export default function TodoItem({item, onSwitch, onDelete, onTextChanged}) {
         <button 
           className={styles.button} 
           disabled ={isEdit}
-          onClick={() => {onDelete(item.id)}} 
+          onClick={handleDelete} 
           data-tip="delete item from list"
           data-type="error">
             <Image src="/images/trash.png" height="16" width="16"/>
